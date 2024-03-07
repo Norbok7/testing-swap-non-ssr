@@ -1,0 +1,14 @@
+<div class="taskbar">
+  <ul>
+    <li><a routerLink="/home" routerLinkActive="active">Home</a></li>
+    <li><a routerLink="/products" routerLinkActive="active">Products</a></li>
+    <li *ngIf="!(isLoggedIn$ | async)">
+      <a routerLink="/login/user" routerLinkActive="active">Login</a>
+    </li>
+    <li *ngIf="(isLoggedIn$ | async)">
+      <a [routerLink]="['/users', userId]" routerLinkActive="active">Logged In</a>
+    </li>
+    <li><a routerLink="/cart" routerLinkActive="active">Cart ({{ cartItemCount }})</a></li>
+  </ul>
+</div>
+<div class="spacer"></div>

@@ -1,0 +1,15 @@
+<h2>Artisans</h2>
+
+<div *ngIf="artisans.length > 0; else noArtisans">
+  <ul>
+    <li *ngFor="let artisan of artisans">
+      <div class="artisan-info">
+        {{artisan.id}} <a [routerLink]="['/artisans', artisan.id, 'products']">{{ artisan.artisan_name }}</a> - {{ artisan.location }}
+      </div>
+    </li>
+  </ul>
+</div>
+
+<ng-template #noArtisans>
+  <p>No artisans available.</p>
+</ng-template>
